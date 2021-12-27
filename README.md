@@ -5,3 +5,7 @@
 ## ch02 
 WebGL入门 
 + click.html 通过点击在指定位置产生随机大小颜色的点
+
+## ch03
+绘制和变换三角形
++ drawType.html gl.drawArrays 的7种绘制模式

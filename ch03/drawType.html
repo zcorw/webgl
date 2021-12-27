@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Show drawalway mode</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <p>
+    <button type="button" id="points">点(gl.POINTS)</button>
+    <button type="button" id="line">线段(gl.LINES)</button>
+    <button type="button" id="line_strip">线条(gl.LINE_STRIP)</button>
+    <button type="button" id="line_loop">回路(gl.LINE_LOOP)</button>
+    <button type="button" id="triangles">三角形(gl.TRIANGLES)</button>
+    <button type="button" id="triangle_strip">三角带(gl.TRIANGLE_STRIP)</button>
+    <button type="button" id="triangle_fan">三角扇(gl.TRIANGLE_FAN)</button>
+  </p>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="drawType.js"></script>
+  </body>
+</html>
