@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Triangle transformation</title>
+  <style>
+    .range {
+      width: 400px;
+    }
+
+    .range input {
+      display: block;
+      width: 100%;
+    }
+
+    #tickmarks {
+      display: flex;
+    }
+
+    #tickmarks option {
+      margin-right: 70px;
+      width: 30px;
+    }
+  </style>
+</head>
+
+<body onload="main()">
+  <p>点击画布，三角形移动到点击位置</p>
+  <canvas id="translate" width="400" height="400">
+    Please use a browser that supports "canvas"
+  </canvas>
+  <p>拖动滑块旋转三角形</p>
+  <canvas id="rotate" width="400" height="400">
+    Please use a browser that supports "canvas"
+  </canvas>
+  <p class="range">
+    <input id="rotateRange" type="range" min="-180" max="180" list="tickmarks" />
+    <datalist id="tickmarks">
+      <option value="-180" label="-180"></option>
+      <option value="-90" label="-90"></option>
+      <option value="0" label="0"></option>
+      <option value="90" label="90"></option>
+      <option value="180" label="180"></option>
+    </datalist>
+  </p>
+
+  <script src="../lib/webgl-utils.js"></script>
+  <script src="../lib/webgl-debug.js"></script>
+  <script src="../lib/cuon-utils.js"></script>
+  <script src="init.js"></script>
+  <script src="translated.js"></script>
+  <script src="rotate.js"></script>
+  <script>
+    function main() {
+      const translate = document.getElementById('translate');
+      translate.addEventListener('mousedown', (ev) => {
+        const clientX = ev.clientX;
+        const clientY = ev.clientY;
+        const rect = translate.getBoundingClientRect();
+        const x = (clientX - rect.left - translate.width / 2) / (translate.width / 2);
+        const y = (translate.height / 2 - (clientY - rect.top)) / (translate.height / 2);
+        translateAction(x, y, 0);
+      });
+      const input = document.getElementById('rotateRange');
+      input.addEventListener('input', (e) => {
+        rotateAction(e.target.value);
+      })
+      translateAction(0, 0, 0);
+      rotateAction(0);
+    }
+  </script>
+</body>
+
+</html>

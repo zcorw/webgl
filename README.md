@@ -9,3 +9,4 @@ WebGL入门
 ## ch03
 绘制和变换三角形
 + drawType.html gl.drawArrays 的7种绘制模式
++ translated.html 三角形变换
