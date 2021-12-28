@@ -7,7 +7,7 @@ const z_VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'uniform mat4 u_xformMatrix;\n' +
   'void main() {\n' +
-  '  gl_Position = a_Position * u_xformMatrix;\n' +
+  '  gl_Position = u_xformMatrix * a_Position;\n' +
   '}\n';
 
 const z_FSHADER_SOURCE =
