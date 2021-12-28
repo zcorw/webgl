@@ -14,12 +14,16 @@
       width: 100%;
     }
 
-    #tickmarks {
+    #tickmarks, #zoommarks {
       display: flex;
     }
 
     #tickmarks option {
       margin-right: 70px;
+      width: 30px;
+    }
+    #zoommarks option {
+      margin-right: 182px;
       width: 30px;
     }
   </style>
@@ -44,6 +48,18 @@
       <option value="180" label="180"></option>
     </datalist>
   </p>
+  <p>拖动滑块缩放三角形</p>
+  <canvas id="zoom" width="400" height="400">
+    Please use a browser that supports "canvas"
+  </canvas>
+  <p class="range">
+    <input id="zoomRange" type="range" min="1" max="3" list="zoommarks" value="1" step="0.1" />
+    <datalist id="zoommarks">
+      <option value="1" label="1"></option>
+      <option value="2" label="2"></option>
+      <option value="3" label="3"></option>
+    </datalist>
+  </p>
 
   <script src="../lib/webgl-utils.js"></script>
   <script src="../lib/webgl-debug.js"></script>
@@ -51,6 +67,7 @@
   <script src="init.js"></script>
   <script src="translated.js"></script>
   <script src="rotate.js"></script>
+  <script src="zoom.js"></script>
   <script>
     function main() {
       const translate = document.getElementById('translate');
@@ -66,8 +83,13 @@
       input.addEventListener('input', (e) => {
         rotateAction(e.target.value);
       })
+      const zoomInput = document.getElementById('zoomRange');
+      zoomInput.addEventListener('input', (e) => {
+        zoomAction(e.target.value);
+      })
       translateAction(0, 0, 0);
       rotateAction(0);
+      zoomAction(1);
     }
   </script>
 </body>
