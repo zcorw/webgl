@@ -10,3 +10,7 @@ WebGL入门
 绘制和变换三角形
 + drawType.html gl.drawArrays 的7种绘制模式
 + translated.html 三角形变换
+
+## ch05
+颜色与纹理
++ wavyLine.html 渐变色波浪线
