@@ -14,3 +14,4 @@ WebGL入门
 ## ch05
 颜色与纹理
 + wavyLine.html 渐变色波浪线
++ bubble.html 气泡
